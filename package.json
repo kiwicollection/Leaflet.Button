@@ -1,0 +1,22 @@
+{
+	"name": "leaflet.button",
+	"version": "1.0.0",
+	"description": "Add a simple button to your Leaflet map.",
+	"homepage": "https://github.com/nford/Leaflet.Button",
+	"main": "leaflet.button.js",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:nford/Leaflet.Button.git"
+	},
+	"author": "Nelson Ford <contact@nelsonford.net>",
+	"license": "MIT",
+	"dependencies": {
+		"font-awesome": "^4.2.0",
+		"leaflet": "^0.7.3"
+	},
+	"keywords": [
+		"leaflet",
+		"button",
+		"plugin"
+	]
+}
