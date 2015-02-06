@@ -69,7 +69,10 @@ L.control.button({
             title: "Refresh map", 
             icon: 'fa fa-street-view', 
             func: function(){
-                map.setView([49.264012,-123.095931], 16, {animate: true});
+                L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                }).addTo(map);
+                map.setView([49.264012,-123.095931], 18, {animate: true});
                 marker.openPopup()
             }
         }).addTo(self.map);
