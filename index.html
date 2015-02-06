@@ -1,0 +1,78 @@
+
+
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+    <title>Leaflet.Button Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Demo of simple button generating plugin for Leaflet" />
+    <meta name="keywords" content="LeafletJS, Button Plugin" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="Leaflet.Button.js"></script>
+    <style>
+    #map {
+        width: 600px;
+        height: 400px;
+        background-color: blue;
+    }
+    #col-left {
+        width: 300px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    #col-right {
+        display: inline-block;
+    }
+    </style>
+</head>
+<body>
+    <div id="col-left">
+        <h1>Leaflet Button</h1>
+        <p>Add a simple button to a Leaflet map.</p>
+        <code><pre>
+L.control.button({
+    title: "Refresh map", 
+    icon: 'fa fa-street-view ', 
+    func: function(){
+        map.setView(
+            [49.264012,-123.095931], 
+            16, 
+            {animate: true}
+        );
+        marker.openPopup()
+    }
+}).addTo(self.map);
+        </pre></code>
+    </div>
+    <div id="col-right">
+        <div id="map"></div>
+    </div>
+    <script>
+        var map = L.map('map').setView([49.264012,-123.095931], 11);
+
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+            subdomains: 'abcd',
+            minZoom: 0,
+            maxZoom: 18
+        }).addTo(map);
+
+        var marker = L.marker([49.264012,-123.095931])
+            .addTo(map)
+            .bindPopup('<p><a href="http://commons.wikimedia.org/wiki/File:DudeChillingPark.jpg#mediaviewer/File:DudeChillingPark.jpg"><img alt="DudeChillingPark.jpg" src="http://upload.wikimedia.org/wikipedia/commons/8/89/DudeChillingPark.jpg" height="145" width="109"></a><br>"<a href="http://commons.wikimedia.org/wiki/File:DudeChillingPark.jpg#mediaviewer/File:DudeChillingPark.jpg">DudeChillingPark</a>" by <a href="//commons.wikimedia.org/wiki/User:The_Interior" title="User:The Interior">The Interior</a> - <span class="int-own-work">Own work</span>. Licensed under <a title="Creative Commons Attribution-Share Alike 3.0" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a> via <a href="//commons.wikimedia.org/wiki/">Wikimedia Commons</a>.</p>');
+
+        L.control.button({
+            title: "Refresh map", 
+            icon: 'fa fa-street-view', 
+            func: function(){
+                map.setView([49.264012,-123.095931], 16, {animate: true});
+                marker.openPopup()
+            }
+        }).addTo(self.map);
+    </script>
+</body>
+</html>
